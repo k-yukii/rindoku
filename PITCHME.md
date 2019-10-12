@@ -97,12 +97,88 @@ function getCookie(key, request) {
         document.querySelector('#id').textContent = 'ID:' + id; 
         document.querySelector('#id_input').value = id; 
     } 
-    </script>  
+```
+@[8](ローカルストレージから値を取り出す)
+@[8](変数 = localStrage.getItem(キー);のようにして使用する)
+@[9,10,11](値がなければログインページに移動)
+@[12](ID:○○という形でテキストを表示させる)
+@[13](valueに値を設定)
+---
+```js
+<body onload="init();"> 
+    <head> 
+        <h1>掲示板</h1> 
+    </head> 
+    <div role="main"> 
+        <p>※メッセージは最大10個まで保管されます。</p> 
+        <form method="post" action="/"> 
+            <p><span id="id"></span> 
+            <input type="hidden" id="id_input" name="id" value=""><p> 
+            <p><input type="text" name="msg"> 
+            <input type="submit" value="送信"></p> 
+```
+@[9]()
+---
+```js
+<p><table style="width:85%;"> 
+            <% for(var i in data) { %> 
+                <%- include('3-18', {val:data[i]}) %> 
+            <%}%> 
+        </table></p> 
+```
+@[1,2,3,4,5](順に取り出し, includeを使い作成)
+---
+```js
+<% if (val != ''){ %> 
+<% var obj = JSON.parse(val); %> 
+<tr> 
+    <th style="width:100px;"><%= obj.id %></th><td><%= obj.msg %></td> 
+</tr> 
+<%} %>
+```
+@[1](空じゃないかチェック)
+@[2](JSON形式のテキストを元にオブジェクトを生成)
+---
+```js
+<head> 
+    <meta http-equiv="content-type" 
+        content="text/html; charset=UTF-8"> 
+    <title>LOGIN</title> 
+    <link type="text/css" href="./style.css" rel="stylesheet"> 
+    <script> 
+    function setId() { 
+        var id = document.querySelector('#id_input').value; 
+        localStorage.setItem('id', id); 
+        location.href = '/'; 
+    }
+    </script> 
 </head> 
 ```
-@[10](クッキーを分解する)
+@[7,8,9,10,11](IDの保存の処理)
 ---
+```js
+const index_page = fs.readFileSync('./3-17.ejs', 'utf8'); 
+const login_page = fs.readFileSync('./3-19.ejs', 'utf8'); 
+const style_css = fs.readFileSync('./style.css', 'utf8'); 
 
+const max_num = 10; // 最大保管数 
+const filename = 'mydata.txt'; // データファイル名 
+var message_data; // ★データ 
+readFromFile(filename); 
+var server = http.createServer(getFromClient); 
+```
+@[5](保管するデータの最大量)
+---
+```js
+// テキストファイルをロード 
+function readFromFile(fname) { 
+    fs.readFile(fname, 'utf8', (err, data) => { 
+        message_data = data.split('\n'); 
+    })
+}
+```
+@[2,3,4,5,6](データを読み込み分割し配列に)
+---
 
 
 
