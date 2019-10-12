@@ -7,6 +7,8 @@
 ### ・超簡単掲示板を作ろう
 ### ・expressを利用しよう
 ---
+# クッキーの利用
+---
 * クッキーはwebブラウザに用意されてるもので、サーバーから送られた値を保管しておくための仕組み
 * どうやってサーバー間とやりとりしてるの？？ |
   * 実は、「ヘッダー情報」として値をやりとりしている
@@ -35,18 +37,45 @@
 @[11](<%= cookie_data %>というタグを追加して、cookie_dataという値を表示している)
 ---
 ```js
-// データ受信終了のイベント処理 
-    request.on('end', () => { 
-        data = qs.parse(body); 
-        setCookie('msg', data.msg, response);//★クッキーの保存
-        write_index (request, response); }
-     ); 
-    } else { 
-        write_index (request, response);
-    }
+// クッキーの値を設定 
+function setCookie(key, value, response) { 
+    var cookie = escape(value); 
+    response.setHeader('Set-Cookie', [key + '=' + cookie]); 
+}
 ```
-@[4](クッキーの保存を行っている)
+@[3](エスケープ処理・・・クッキーに保存できる形式に変換する)
+@[4](指定のキーに設定して保存する。第二引数は配列['キー=値', 'キー=値'…])
 ---
+```js
+function getCookie(key, request) { 
+    var cookie_data = request.headers.cookie != undefined ? 
+        request.headers.cookie : ''; 
+    var data = cookie_data.split(';'); 
+    for(var i in data) { 
+        if (data[i].trim().startsWith(key + '=')){ 
+            var result = data[i].trim().substring(key.length + 1); 
+            return unescape(result); 
+        } 
+    }
+    return ''; 
+}
+```
+@[2](クッキーの値を取り出す)
+@[2,3](三項演算子・・・変数 = 条件 ? trueの値 : falseの値;)
+@[4](クッキーを分解する)
+@[5,6,7,8,9,10](アンエスケープしてreturn)
+---
+## まとめ
+* クッキーの問題点
+ * 保管できる値が限られている |
+* クッキーに値を保存する際に、まず行う処理
+ * エスケープ処理 |
+ ---
+ # 超簡単掲示板を作ろう
+ ---
+ ### 掲示板に必要なもの
+ * 投稿データをファイルに保存
+ * 自分のIDをローカルストレージに保管
 
 
 
