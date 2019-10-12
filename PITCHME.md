@@ -76,6 +76,29 @@ function getCookie(key, request) {
  ### 掲示板に必要なもの
  * 投稿データをファイルに保存
  * 自分のIDをローカルストレージに保管
+ ---
+ ```js
+<!DOCTYPE html> 
+<html lang="ja"> 
+<head> 
+    <meta http-equiv="content-type" 
+        content="text/html; charset=UTF-8"> 
+        <title> ミニ掲示板</title> 
+        <link type="text/css" href="./style.css" rel="stylesheet"> 
+        <script> 
+        function init() { 
+            var id = localStorage.getItem('id'); 
+            if (id == null){ 
+                location.href = './login'; 
+            }
+        document.querySelector('#id').textContent = 'ID:' + id; 
+        document.querySelector('#id_input').value = id; 
+    } 
+    </script>  
+</head> 
+```
+@[4](クッキーを分解する)
+---
 
 
 
