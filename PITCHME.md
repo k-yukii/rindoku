@@ -65,7 +65,10 @@ function getCookie(key, request) {
 @[4](クッキーを分解する)
 @[5,6,7,8,9,10](アンエスケープしてreturn)
 ---
-
+<img width="200" src="https://github.com/k-yukii/rindoku/blob/master/gc.png">
+---
+<img width="50" src="https://github.com/k-yukii/rindoku/blob/master/sb.png">
+<img width="50" src="https://github.com/k-yukii/rindoku/blob/master/sa.png">
 ---
 ##### まとめ
 * クッキーの問題点
