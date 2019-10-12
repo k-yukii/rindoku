@@ -83,8 +83,6 @@ function getCookie(key, request) {
 * 自分のIDをローカルストレージに保管
 ---
 ```js
-<!DOCTYPE html> 
-<html lang="ja"> 
 <head> 
     <meta http-equiv="content-type" 
         content="text/html; charset=UTF-8"> 
@@ -102,7 +100,7 @@ function getCookie(key, request) {
     </script>  
 </head> 
 ```
-@[4](クッキーを分解する)
+@[10](クッキーを分解する)
 ---
 
 
