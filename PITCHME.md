@@ -207,10 +207,48 @@ function saveToFile(fname) {
 @[3](1つのテキストに変換)
 @[4](ファイルに保存)
 ---
-<img width="700" src="https://user-images.githubusercontent.com/56333428/66698529-c49b7b00-ed19-11e9-9496-b3cfadcf91c9.png">
+<img width="700" src="https://user-images.githubusercontent.com/56333428/66712501-81541180-edd8-11e9-8dbb-68c7ee0f1ea1.png">
 ---
-<img width="400" src="https://user-images.githubusercontent.com/56333428/66698490-81d9a300-ed19-11e9-939a-02120da473c7.png">
-<img width="400" src="https://user-images.githubusercontent.com/56333428/66698520-b2214180-ed19-11e9-8c11-2946b5a332ab.png">
+<img width="400" src="https://user-images.githubusercontent.com/56333428/66712504-992b9580-edd8-11e9-8c26-933e13339e0a.png">
+<img width="400" src="https://user-images.githubusercontent.com/56333428/66712507-a779b180-edd8-11e9-9ba7-76edf771764d.png">
 ---
+##### まとめ
+* クライアントごとに保存するものとしてクッキーの他に
+ * ローカルストレージ |
+* ローカルストレージの問題点 |
+ * クライアント側でしか動かない |
+---
+## expressを利用しよう
+---
+expressとは
+* Nodejsに独自に組み込み、アプリケーション開発を簡単に
+* Nodejsに使い心地が似ている
+* 比較的軽いフレームワーク
+---
+```js
+var express = require('express') 
+var app = express() 
 
+app.get('/', (req, res) => { 
+    res.send('Welcome to Express!') 
+}) 
 
+app.listen(3000, () => { 
+    console.log('Start server port:3000')
+})
+```
+@[1](expressのオブジェクトの用意)
+@[2](アプリケーションオブジェクトの作成)
+@[4,5,6](ルーティングの設定)
+@[8,9,10](待ち受けの開始)
+---
+##### まとめ
+* expressのオブジェクトの用意する関数
+ * var express = require('express') |
+* ルーティングの設定 
+ * app.get() |
+* 待ち受けの開始
+ * app.listen() |
+---
+## ご静聴ありがとうございました
+---
