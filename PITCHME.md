@@ -178,7 +178,39 @@ function readFromFile(fname) {
 ```
 @[2,3,4,5,6](データを読み込み分割し配列に)
 ---
-
-
+```js
+function addToData(id, msg, fname, request) { 
+    var obj = {'id': id, 'msg': msg}; 
+    var obj_str = JSON.stringify (obj); 
+    console.log('add data: ' + obj_str); 
+    message_data.unshift (obj_str); 
+    if (message_data.length > max_num) { 
+        message_data.pop(); 
+    }
+    saveToFile(fname); 
+}
+```
+@[2](送信されたデータをまとめている)
+@[3](オブジェクトをJSON形式に変換)
+@[5](配列の最後に値を追加)
+@[6,7,8](メッセージデータが多ければ削除)
+---
+```js
+// データを保存 
+function saveToFile(fname) { 
+    var data_str = message_data.join('\n'); 
+    fs.writeFile(fname, data_str, (err) => { 
+        if (err) { throw err; } 
+    });
+}
+```
+@[3](1つのテキストに変換)
+@[4](ファイルに保存)
+---
+<img width="700" src="https://user-images.githubusercontent.com/56333428/66698529-c49b7b00-ed19-11e9-9496-b3cfadcf91c9.png">
+---
+<img width="400" src="https://user-images.githubusercontent.com/56333428/66698490-81d9a300-ed19-11e9-939a-02120da473c7.png">
+<img width="400" src="https://user-images.githubusercontent.com/56333428/66698520-b2214180-ed19-11e9-8c11-2946b5a332ab.png">
+---
 
 
