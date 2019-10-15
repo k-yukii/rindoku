@@ -73,9 +73,8 @@ function getCookie(key, request) {
  * 保管できる値が限られている |
 * クッキーに値を保存する際の形式を変換する処理
  * エスケープ処理 |
-* var cookie_data = request.headers.cookie != undefined ? 
-        request.headers.cookie : '';
- * 三項演算子・・・変数 = 条件 ? trueの値 : falseの値;
+* var cookie_data = request.headers.cookie != undefined ? request.headers.cookie : '';
+ * 三項演算子・・・変数 = 条件 ? trueの値 : falseの値; |
 ---
 ## 超簡単掲示板を作ろう
 ---
