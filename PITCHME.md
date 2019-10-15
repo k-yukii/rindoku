@@ -119,7 +119,7 @@ function getCookie(key, request) {
             <p><input type="text" name="msg"> 
             <input type="submit" value="送信"></p> 
 ```
-@[9]()
+@[9](valueに値を設定)
 ---
 ```js
 <p><table style="width:85%;"> 
