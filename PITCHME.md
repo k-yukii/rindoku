@@ -142,22 +142,6 @@ function getCookie(key, request) {
 @[2](JSON形式のテキストを元にオブジェクトを生成)
 ---
 ```js
-<head> 
-    <meta http-equiv="content-type" 
-        content="text/html; charset=UTF-8"> 
-    <title>LOGIN</title> 
-    <link type="text/css" href="./style.css" rel="stylesheet"> 
-    <script> 
-    function setId() { 
-        var id = document.querySelector('#id_input').value; 
-        localStorage.setItem('id', id); 
-        location.href = '/'; 
-    }
-    </script> 
-</head> 
-```
----
-```js
 const index_page = fs.readFileSync('./3-17.ejs', 'utf8'); 
 const login_page = fs.readFileSync('./3-19.ejs', 'utf8'); 
 const style_css = fs.readFileSync('./style.css', 'utf8'); 
