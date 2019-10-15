@@ -32,7 +32,7 @@
         <input type="submit" value="送信 "></p> 
     </div> 
 ```
-@[11](<%= cookie_data %>というタグを追加して、cookie_dataという値を表示している)
+@[10](<%= cookie_data %>というタグを追加して、cookie_dataという値を表示している)
 ---
 ```js
 // クッキーの値を設定 
