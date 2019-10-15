@@ -153,7 +153,7 @@ function getCookie(key, request) {
     </div> 
 </body> 
 ```
-@[7,8](保存の処理)
+保存の処理
 ---
 ```js
 function setId() { 
