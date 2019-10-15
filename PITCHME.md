@@ -229,7 +229,7 @@ app.listen(3000, () => {
 @[8,9,10](待ち受けの開始)
 ---
 ##### まとめ
-* expressのオブジェクトの用意する関数
+* expressのオブジェクトの用意
  * var express = require('express') |
 * ルーティングの設定 
  * app.get() |
