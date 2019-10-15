@@ -153,7 +153,7 @@ function getCookie(key, request) {
     </script> 
 </head> 
 ```
-@[7,8,9,10,11](IDの保存の処理)
+@[7](IDの保存の処理)
 @[7,8,9,10,11](IDの保存の処理)
 ---
 ```js
