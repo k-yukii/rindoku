@@ -82,6 +82,9 @@ function getCookie(key, request) {
 * 投稿データをファイルに保存
 * 自分のIDをローカルストレージに保管
 ---
+* ローカルストレージには問題点が、、、
+ * クライアント側でしか動かない！ |
+---
 ```js
 <head> 
     <meta http-equiv="content-type" 
