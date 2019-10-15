@@ -153,8 +153,6 @@ function getCookie(key, request) {
     </script> 
 </head> 
 ```
-@[7](IDの保存の処理)
-@[7,8,9,10,11](IDの保存の処理)
 ---
 ```js
 const index_page = fs.readFileSync('./3-17.ejs', 'utf8'); 
