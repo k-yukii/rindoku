@@ -17,7 +17,6 @@
  * クッキーは保管できる値の種類が限られている |
 ---
 ```js
-<body> 
     <head> 
         <h1><%=title %></h1> 
     </head> 
@@ -32,7 +31,6 @@
         <p>MESSAGE <input type="text" name="msg"> 
         <input type="submit" value="送信 "></p> 
     </div> 
-</body>
 ```
 @[11](<%= cookie_data %>というタグを追加して、cookie_dataという値を表示している)
 ---
